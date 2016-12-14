@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+disk
+{
+    type            actuatorDiskSource;
+    active          on;
+
+    actuatorDiskSourceCoeffs
+    {
+        fields      (U);
+
+        selectionMode   all;
+/*
+        selectionMode   cellSet;
+        cellSet         actuationDisk;
+*/
+/*
+        diskDir         (1 0 0);    // Orientation of the disk
+        Cp              0.4;
+        Ct              0.6;
+        diskArea        1320;
+        upstreamPoint   (100 0 0);
+
+*/
+        centerPoint           (102.5 0 0); // Disk center point
+        diskDir               (1 0 0);    // Orientation of the disk
+		interiorRadius        1.6;
+		exteriorRadius        20.5;
+        thickness             1.;   // Disk thickness
+		thrust                47.5e3;
+		torque                112.0e3; //112.0e3;
+		density               1.2;
+    }
+}
+
+
+
+
+// ************************************************************************* //
